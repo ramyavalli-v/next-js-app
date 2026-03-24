@@ -1,0 +1,16 @@
+name: Emit Logs
+
+on: [push]
+
+jobs:
+  log_messages:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Emit a warning
+        run: echo "::warning ::Low disk space warning"
+
+      - name: Emit an error
+        run: echo "::error ::Critical error occurred"
+
+      - name: Emit detailed error
+        run: echo "::error file=main.go,line=12,col=3::Invalid function call"
